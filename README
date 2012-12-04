@@ -1,6 +1,6 @@
-Pymongobean 0.0.1
+mongobeancpp 0.0.1
 
-Pymongobean is intended to be a super light weight alternative to MongoDB ODMs. It adds before_insert and after_insert methods (eventually wrapping other methods, as well).
+Mongobean is intended to be a super light weight alternative to MongoDB ODMs. It adds before_insert and after_insert methods (eventually wrapping other methods, as well).
 You can use these methods to, for example, easily bind validation and logging functionality to the mongodb api. 
 
   Requires Mongo C++ Driver (which requires Boost).
@@ -20,7 +20,7 @@ MongoBean::InsertObjWrapperFn log_before_cb(boost::ref(logger));
 MockMongoBeanDBClientConnection c;
 c.connect("localhost");
 c.before_insert(log_before_cb); 
-c.insert("test.tests", obj);
-//$ inserting {"name": "Joe"}
+c.insert("test.tests", obj); //$ inserting {"name": "Joe"}
+
 
 
