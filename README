@@ -20,7 +20,11 @@ MongoBean::InsertObjWrapperFn log_before_cb(boost::ref(logger));
 MockMongoBeanDBClientConnection c;
 c.connect("localhost");
 c.before_insert(log_before_cb); 
-c.insert("test.tests", obj); //$ inserting {"name": "Joe"}
+c.insert("test.tests", obj); 
+
+//$ g++ -g ./src/mongobean.cpp ./mongobean_backup.cpp -pthread -lmongoclient -lboost_thread-mt -lboost_filesystem-mt -lboost_program_options-mt -lboost_system-mt -lboost_unit_test_framework-mt -o mongobean_test
+//$ ./mongobean_tests
+//$ inserting {"name": "Joe"}
 
 
 
